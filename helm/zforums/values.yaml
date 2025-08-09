@@ -2,8 +2,8 @@
 replicaCount: 2
 
 image:
-  repository: ghcr.io/rohitmr619/zforums
-  pullPolicy: Always
+  repository: zforums/app
+  pullPolicy: Never
   tag: "latest"
 
 imagePullSecrets: []
