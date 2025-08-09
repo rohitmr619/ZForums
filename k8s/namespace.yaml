@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: zforums
+  labels:
+    name: zforums
+    app.kubernetes.io/name: zforums
+    app.kubernetes.io/part-of: zforums

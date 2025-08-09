@@ -1,0 +1,22 @@
+apiVersion: v2
+name: zforums
+description: A simple fullstack forums application with PostgreSQL backend
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+keywords:
+  - forums
+  - nodejs
+  - react
+  - postgresql
+home: https://github.com/zforums/zforums
+sources:
+  - https://github.com/zforums/zforums
+maintainers:
+  - name: ZForums Team
+    email: team@zforums.dev
+dependencies:
+  - name: postgresql
+    version: 15.5.38
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled

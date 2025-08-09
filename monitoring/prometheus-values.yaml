@@ -1,0 +1,35 @@
+prometheus:
+  prometheusSpec:
+    retention: 15d
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: local-path
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 10Gi
+    serviceMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelector: {}
+    ruleSelectorNilUsesHelmValues: false
+    ruleSelector: {}
+    
+grafana:
+  enabled: true
+  adminPassword: admin123
+  persistence:
+    enabled: true
+    storageClassName: local-path
+    size: 2Gi
+  service:
+    type: NodePort
+    nodePort: 30300
+
+alertmanager:
+  enabled: true
+  
+nodeExporter:
+  enabled: true
+  
+kubeStateMetrics:
+  enabled: true
