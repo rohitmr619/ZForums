@@ -259,4 +259,4 @@ For issues and questions:
 
 ---
 
-Built with ❤️ for the Kubernetes community
+
