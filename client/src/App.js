@@ -72,8 +72,8 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>🏛️ ZForums</h1>
-        <p>A simple community discussion platform</p>
+        <h1>🌙 ZForums Dark</h1>
+        <p>A sleek dark forum for modern discussions</p>
       </header>
 
       <main className="main-content">
