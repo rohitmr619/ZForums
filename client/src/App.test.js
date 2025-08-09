@@ -8,7 +8,7 @@ beforeEach(() => {
   fetch.mockClear();
 });
 
-test('renders ZForums header', async () => {
+test('renders ZForums Dark header', async () => {
   // Mock the API response
   fetch.mockResolvedValueOnce({
     ok: true,
@@ -17,9 +17,9 @@ test('renders ZForums header', async () => {
 
   render(<App />);
   
-  // Wait for loading to finish and check for ZForums title
+  // Wait for loading to finish and check for ZForums Dark title
   await waitFor(() => {
-    const titleElement = screen.getByText(/🏛️ ZForums/i);
+    const titleElement = screen.getByText(/🌙 ZForums Dark/i);
     expect(titleElement).toBeInTheDocument();
   });
 });
