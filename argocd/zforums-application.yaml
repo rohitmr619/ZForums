@@ -9,7 +9,7 @@ spec:
   project: default
   
   source:
-    repoURL: https://github.com/rohitmr619/ZForums.git
+    repoURL: git@github.com:rohitmr619/ZForums.git
     targetRevision: main
     path: helm/zforums
     helm:
