@@ -9,19 +9,12 @@ spec:
   project: default
   
   source:
-    repoURL: git@github.com:rohitmr619/ZForums.git
+    repoURL: https://github.com/rohitmr619/ZForums.git
     targetRevision: main
     path: helm/zforums
     helm:
       valueFiles:
         - values.yaml
-      parameters:
-        - name: image.repository
-          value: ghcr.io/rohitmr619/zforums
-        - name: image.tag
-          value: latest
-        - name: image.pullPolicy
-          value: Always
   
   destination:
     server: https://kubernetes.default.svc
