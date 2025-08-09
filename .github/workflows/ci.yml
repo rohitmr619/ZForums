@@ -35,9 +35,23 @@ jobs:
     
     - name: Backend health check
       run: |
-        timeout 30s npm start &
-        sleep 10
-        curl -f http://localhost:3000/health || echo "Health check completed"
+        # Start the server in background
+        npm start &
+        SERVER_PID=$!
+        
+        # Wait for server to start
+        for i in {1..30}; do
+          if curl -f http://localhost:3000/health 2>/dev/null; then
+            echo "✅ Health check passed"
+            kill $SERVER_PID 2>/dev/null || true
+            exit 0
+          fi
+          sleep 1
+        done
+        
+        echo "❌ Health check failed or timeout"
+        kill $SERVER_PID 2>/dev/null || true
+        exit 1
 
   test-frontend:
     runs-on: ubuntu-latest
@@ -85,7 +99,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
-        push: false
+        load: true
         tags: zforums/app:test
         cache-from: type=gha
         cache-to: type=gha,mode=max
@@ -93,9 +107,9 @@ jobs:
     - name: Test Docker image
       run: |
         docker run --rm -d --name zforums-test -p 3001:3000 zforums/app:test
-        sleep 10
+        sleep 15
         curl -f http://localhost:3001/health || echo "Docker health check completed"
-        docker stop zforums-test
+        docker stop zforums-test || true
 
   security-scan:
     runs-on: ubuntu-latest
