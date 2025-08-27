@@ -1,8 +1,8 @@
-# 🏛️ ZForums - Simple Fullstack Forums Application
+#  ZForums - Simple Fullstack Forums Application
 
 A modern, scalable forums application built with React, Node.js, Express, and PostgreSQL, designed for deployment on Kubernetes (k3s) with Traefik ingress and Helm charts.
 
-## 🚀 Features
+##  Features
 
 - **Modern UI**: Clean, responsive React frontend
 - **REST API**: Express.js backend with PostgreSQL database
@@ -11,7 +11,7 @@ A modern, scalable forums application built with React, Node.js, Express, and Po
 - **Production Ready**: Security best practices, health checks, and monitoring
 - **Persistent Storage**: PostgreSQL with persistent volumes
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
@@ -24,14 +24,14 @@ A modern, scalable forums application built with React, Node.js, Express, and Po
     Port 80/443            Port 3000               Port 5432
 ```
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - k3s cluster (or any Kubernetes cluster)
 - kubectl configured
 - Helm 3.x installed
 - Docker (for building images)
 
-## 🛠️ Quick Start
+## Quick Start
 
 ### 1. Clone and Setup
 
@@ -117,7 +117,7 @@ The application supports these environment variables:
 - `DB_PASSWORD`: Database password
 - `NODE_ENV`: Environment (production/development)
 
-## 🏃‍♂️ Development
+##  Development
 
 ### Local Development
 
@@ -147,22 +147,14 @@ docker run -d \
   postgres:16-alpine
 ```
 
-## 🔐 Security Features
-
-- **Non-root containers**: Runs as user ID 1001
-- **Read-only root filesystem**: Enhanced security
-- **Security contexts**: Proper Kubernetes security contexts
-- **Secrets management**: Database credentials stored in Kubernetes secrets
-- **Helmet.js**: Security headers for Express.js
-
-## 📊 Monitoring & Health Checks
+##  Monitoring & Health Checks
 
 - **Health endpoint**: `/health` for Kubernetes probes
 - **Liveness probes**: Application health monitoring
 - **Readiness probes**: Traffic routing control
 - **Resource limits**: CPU and memory constraints
 
-## 🔄 Auto-scaling
+##  Auto-scaling
 
 The application includes Horizontal Pod Autoscaler (HPA) configuration:
 
@@ -171,28 +163,28 @@ The application includes Horizontal Pod Autoscaler (HPA) configuration:
 - **Min replicas**: 2 (for high availability)
 - **Max replicas**: 10 (configurable)
 
-## 🗃️ Database
+##  Database
 
 - **PostgreSQL 16**: Latest stable version
 - **Persistent storage**: 8Gi persistent volume
 - **Backup ready**: Standard PostgreSQL backup tools compatible
 - **Connection pooling**: Built-in Node.js connection pooling
 
-## 🌐 Networking
+##  Networking
 
 - **Traefik Ingress**: Advanced ingress controller
 - **TLS/SSL**: Automatic HTTPS with cert-manager support
 - **Load balancing**: Built-in load balancing across pods
 - **Service mesh ready**: Compatible with Istio/Linkerd
 
-## 📝 API Endpoints
+##  API Endpoints
 
 - `GET /api/posts` - List all forum posts
 - `POST /api/posts` - Create a new post
 - `GET /api/posts/:id` - Get a specific post
 - `GET /health` - Health check endpoint
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -228,35 +220,5 @@ kubectl exec -it -n zforums deployment/zforums-postgresql -- psql -U zforums -d 
 kubectl port-forward -n zforums svc/zforums-postgresql 5432:5432
 ```
 
-## 🚀 Production Deployment
-
-For production deployment:
-
-1. **Use external PostgreSQL**: Disable built-in PostgreSQL and use managed database
-2. **Configure TLS**: Setup cert-manager for automatic SSL certificates
-3. **Resource limits**: Adjust CPU/memory limits based on load testing
-4. **Monitoring**: Add Prometheus/Grafana monitoring
-5. **Backup strategy**: Implement database backup procedures
-
-## 📄 License
-
-MIT License - see LICENSE file for details.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests
-5. Submit a pull request
-
-## 📞 Support
-
-For issues and questions:
-- Create an issue in the GitHub repository
-- Check the troubleshooting section above
-- Review Kubernetes logs for debugging
-
----
 
 
